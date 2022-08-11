@@ -5,8 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myshoppal.R
-import com.example.myshoppal.ui.viewmodels.ItemsViewModel
+import com.example.myshoppal.activities.ui.viewmodels.ItemsViewModel
+import com.myshoppal.R
 
 class ListFriendAdapter(private val mList: MutableList<ItemsViewModel>) :
     RecyclerView.Adapter<ListFriendAdapter.FriendViewHolder>() {
@@ -38,9 +38,9 @@ class ListFriendAdapter(private val mList: MutableList<ItemsViewModel>) :
 
     // Holds the views for adding it to text
     class FriendViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val ten: TextView = itemView.findViewById(R.id.name)
-        val tuoi: TextView = itemView.findViewById(R.id.age)
-        val queQuan: TextView = itemView.findViewById(R.id.country)
+        val ten: TextView = itemView.findViewById(R.id.id_name)
+        val tuoi: TextView = itemView.findViewById(R.id.id_age)
+        val queQuan: TextView = itemView.findViewById(R.id.id_country)
     }
 
 

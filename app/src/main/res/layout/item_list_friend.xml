@@ -1,47 +1,69 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:layout_margin="10dp"
-    app:cardElevation="6dp">
+    android:orientation="horizontal">
 
-    <RelativeLayout
+    <androidx.cardview.widget.CardView
+        app:cardCornerRadius="5dp"
+        android:layout_margin="5dp"
+        app:cardBackgroundColor="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/list_friend_item"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="start|center">
-        <LinearLayout
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.example.myshoppal.utils.MSPTextViewBold
+            android:id="@+id/id_name"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:paddingStart="5dp"
+            android:gravity="start|center"
+            android:text="Ten"
+            android:textColor="@color/white"
+            android:textSize="@dimen/rv_item_name_textSize">
+
+        </com.example.myshoppal.utils.MSPTextViewBold>
+
+
+        <com.example.myshoppal.utils.MSPTextViewBold
+            android:id="@+id/id_age"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5dp"
+            android:gravity="center"
+            android:text="Tuoi"
+            android:textColor="@color/white"
+            android:textSize="@dimen/rv_item_name_textSize"
+            app:layout_constraintBottom_toBottomOf="@+id/list_friend_item"
+            app:layout_constraintStart_toEndOf="@+id/list_friend_item"
+            app:layout_constraintTop_toTopOf="@+id/list_friend_item">
+
+        </com.example.myshoppal.utils.MSPTextViewBold>
+
+        <com.example.myshoppal.utils.MSPTextViewBold
+            android:id="@+id/id_country"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:layout_marginStart="5dp"
+            android:gravity="center"
+            android:text="Que quan"
+            android:textColor="@color/white"
+            android:textSize="@dimen/rv_item_name_textSize"
+            app:layout_constraintBottom_toBottomOf="@+id/list_friend_item"
+            app:layout_constraintStart_toEndOf="@+id/list_friend_item"
+            app:layout_constraintTop_toTopOf="@+id/list_friend_item">
 
-            <TextView
-                android:id="@+id/name"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="Ten"
-                android:textSize="20sp" />
+        </com.example.myshoppal.utils.MSPTextViewBold>
+    </LinearLayout>
 
-            <TextView
-                android:id="@+id/age"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="Tuoi"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/country"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="Que quan"
-                android:textSize="20sp" />
-
-        </LinearLayout>
-    </RelativeLayout>
+    </androidx.cardview.widget.CardView>
 
 
-</androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

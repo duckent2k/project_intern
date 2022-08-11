@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/img_splash_background"
     android:fitsSystemWindows="true"
-    tools:context=".activities.SplashActivity">
+    tools:context="com.example.myshoppal.activities.ui.activities.SplashActivity">
 
     <com.example.myshoppal.utils.MSPTextViewBold
         android:id="@+id/tv_app_name"

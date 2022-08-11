@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".activities.RegisterActivity">
+    tools:context="com.example.myshoppal.activities.ui.activities.RegisterActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_register_activity"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:theme="@style/ThemeOverlay.AppCompat.ActionBar">
 
         <com.example.myshoppal.utils.MSPTextViewBold
             android:id="@+id/tv_title"
@@ -41,7 +40,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_first_name"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/MSPTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -68,7 +67,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_last_name"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/MSPTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -93,8 +92,36 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_email"
+                android:id="@+id/til_mobile_number"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="16dp"
+                android:hint="@string/et_hint_mobile_number"
+                android:textColorHint="@color/colorSecondaryText"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/til_last_name">
+
+                <com.example.myshoppal.utils.MSPEditText
+                    android:id="@+id/et_mobile_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_last_name"
+                    android:inputType="number"
+                    android:maxLength="12"
+                    android:padding="@dimen/et_padding"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="@dimen/et_textSize"
+                    tools:ignore="TextContrastCheck,TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_email"
+                style="@style/MSPTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -120,7 +147,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_password"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/MSPTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -146,7 +173,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_confirm_password"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/MSPTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -170,6 +197,50 @@
                     tools:ignore="SpeakableTextPresentCheck,TextContrastCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <RadioGroup
+                android:id="@+id/rg_gender"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/profile_radio_button_height"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="@dimen/margin_top_common"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/til_confirm_password">
+
+                <com.example.myshoppal.utils.MSPRadioButton
+                    android:id="@+id/rb_male"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/profile_radio_button_marginStartEnd"
+                    android:layout_weight="1"
+                    android:background="@drawable/drawable_gender_tab_selector"
+                    android:button="@null"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:text="@string/rb_lbl_male"
+                    android:textColor="@drawable/drawable_gender_tab_text_color_selector"
+                    android:textStyle="bold"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <com.example.myshoppal.utils.MSPRadioButton
+                    android:id="@+id/rb_female"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/profile_radio_button_marginStartEnd"
+                    android:layout_weight="1"
+                    android:background="@drawable/drawable_gender_tab_selector"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="@string/rb_lbl_female"
+                    android:textColor="@drawable/drawable_gender_tab_text_color_selector"
+                    android:textStyle="bold"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </RadioGroup>
+
             <LinearLayout
                 android:id="@+id/ll_terms_and_condition"
                 android:layout_width="wrap_content"
@@ -179,12 +250,14 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_confirm_password">
+                app:layout_constraintTop_toBottomOf="@id/rg_gender">
 
                 <androidx.appcompat.widget.AppCompatCheckBox
                     android:id="@+id/cb_terms_and_condition"
-                    android:layout_width="wrap_content"
+                    android:layout_width="25dp"
                     android:layout_height="wrap_content"
+                    android:buttonTint="@color/black"
+                    android:drawableTint="@color/colorThemeOrange"
                     tools:checked="false"
                     tools:ignore="TouchTargetSizeCheck" />
 
